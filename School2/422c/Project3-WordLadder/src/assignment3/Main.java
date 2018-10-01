@@ -86,7 +86,27 @@ public class Main {
 		Set<String> dict = makeDictionary();
 		Queue<String> words = new LinkedList<String>();
 		words.add(start);
+		ArrayList<String> ret = new ArrayList<String>();
+		ret.add(start);
 		// TODO more code
+		
+		while (!words.isEmpty()) {
+			String current = words.poll();
+			
+			for (String s : dict) {
+				if (isAdjacent(start, s)) {
+					words.add(s);
+					dict.remove(s);
+					ret.add(s);
+					
+					if (s.equals(end)) {
+						ret.add(s);
+						ret.add(end);
+						return ret;
+					}
+				}
+			}
+		}
 		
 		return null; // replace this line later with real return
 	}
