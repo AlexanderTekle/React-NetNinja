@@ -84,6 +84,8 @@ public class Main {
 		
 		// TODO some code
 		Set<String> dict = makeDictionary();
+		Queue<String> words = new LinkedList<String>();
+		words.add(start);
 		// TODO more code
 		
 		return null; // replace this line later with real return
@@ -98,6 +100,22 @@ public class Main {
 	}
 	// TODO
 	// Other private static methods here
+	
+	private static boolean isAdjacent(String one, String two) {
+	    int length = one.length(); 
+	    int count = 0;  
+	    
+	    char first[] = one.toCharArray();
+	    char second[] = two.toCharArray();
+	    
+	    for (int i = 0; i < length; i++) {
+	        if (first[i] != second[i]) 
+	        		count++; 
+	        if (count > 1) 
+	        		return false; 
+	    } 
+	    return (count == 1);
+	}
 
 
 	/* Do not modify makeDictionary */
